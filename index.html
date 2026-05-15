@@ -135,6 +135,18 @@
       font-family: var(--mono);
     }
 
+    .guiding-question {
+      font-family: var(--sans);
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--cyan);
+      border-left: 3px solid var(--orange);
+      padding: 8px 14px;
+      margin-bottom: 20px;
+      background: rgba(56,189,248,0.05);
+      border-radius: 0 3px 3px 0;
+    }
+
     /* ── slider ── */
     .slider-row {
       display: flex;
@@ -378,6 +390,7 @@
       <section class="panel">
         <div class="section-label">// ÁLGEBRA &amp; CONTROL</div>
         <h2>Control de ajuste del lente</h2>
+        <p class="guiding-question">¿Para qué valor de x el lente no tiene distorsión?</p>
 
         <div class="slider-row">
           <label for="xRange">VALOR DE x</label>
@@ -601,15 +614,6 @@
         ctx.beginPath(); ctx.arc(cpx, cpy, 5, 0, Math.PI * 2); ctx.fill();
         ctx.restore();
 
-        // etiqueta junto al punto
-        ctx.font = '11px "Share Tech Mono", monospace';
-        const lx = cpx + (cpx > W * 0.72 ? -86 : 10);
-        ctx.textAlign = cpx > W * 0.72 ? 'right' : 'left';
-        ctx.textBaseline = 'middle';
-        ctx.fillStyle = C.textBright;
-        ctx.fillText(`x = ${cx.toFixed(1)}`, lx, cpy - 14);
-        ctx.fillStyle = C.orange;
-        ctx.fillText(`f(x) = ${cy.toFixed(2)}`, lx, cpy + 2);
       }
     }
 
